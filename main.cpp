@@ -1,12 +1,12 @@
 ///////////////////////////////////////////////////////////////////////////////
 ///         University of Hawaii, College of Engineering
-/// @brief  ee205_lab_08d_animal_farm_1 - EE 205 - Spr 2022
+/// @brief  ee205_lab_08d_animal_farm_2 - EE 205 - Spr 2022
 ///
 /// @file main.cpp
 /// @version 1.0
 ///
 /// @author Maxwell Pauly <mgpauly@hawaii.edu>
-/// @date   19_Mar_2022
+/// @date   10_April_2022
 ///////////////////////////////////////////////////////////////////////////////
 #include "main.h"
 #include <iostream>
@@ -178,8 +178,8 @@ void Cat::setIsCatFixed (bool isCatFixed) {
     Cat::isCatFixed = isCatFixed;
 }
 
-bool Cat::getIsCatFixed() {
-    return isCatFixed;
+const char* Cat::getIsCatFixed() {
+    return Cat::isCatFixed? "true":"false";
 }
 
 // weight
