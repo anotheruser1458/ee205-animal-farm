@@ -88,6 +88,7 @@ bool deleteAllCats(Cat *catDatabaseHeadPointer) {
     while(currentCat->next != nullptr) {
         nextCat = currentCat->next;
         currentCat->~Cat();
+        currentCat = nextCat;
     }
     currentCat->~Cat();
     cout << "All cats deleted" << endl;

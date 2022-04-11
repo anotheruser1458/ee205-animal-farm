@@ -12,6 +12,29 @@
 #include <iostream>
 using namespace std;
 
+#ifdef DEBUG
+int main() {
+    Cat* catDatabaseHeadPointer;
+
+    cout << "Verify that a cat created with Cat() has all of the default\n"
+            "values set" << endl;
+    Cat c1;
+    cout << c1.getName() << endl;
+    cout << c1.getIsCatFixed() << endl;
+    cout << c1.getWeight() << endl;
+    cout << c1.getGender() << endl;
+    cout << c1.getBreed() << endl;
+
+}
+
+
+
+#endif
+
+
+
+
+
 // name
 void Cat::setName(char* name) {
     if (name == nullptr) {
