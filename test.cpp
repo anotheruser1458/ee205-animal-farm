@@ -25,10 +25,8 @@ int main() {
     c1.setIsCatFixed(true);
     cout << "c1 isCatFixed = " << c1.getIsCatFixed() << endl;
 
-    c1.setGender(MALE);
     cout << "c1 gender = " << c1.getGender() << endl;
 
-    c1.setBreed(MANX);
     cout << "c1 breed = " << c1.getBreed() << endl << endl;
 
     Cat c2("Maxwell", MALE, MANX, 23.2);
@@ -37,12 +35,17 @@ int main() {
     cout << "c2 isCatFixed = " << c2.getIsCatFixed() << endl;
     cout << "c2 gender = " << c2.getGender() << endl;
     cout << "c2 breed = " << c2.getBreed() << endl;
+    cout << endl;
 
     //name setter
     c1.setName(nullptr);
     c1.setName("");
     c1.setName("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+    cout << endl;
 
+    //weight setter
+    c1.setWeight(0);
+    cout << endl;
 
     fprintf(stdout,"Done with Animal Farm 2\n");
     return 0;

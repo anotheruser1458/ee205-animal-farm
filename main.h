@@ -86,6 +86,9 @@ protected:
     bool isCatFixed = false;
     Weight weight = UNKNOWN_WEIGHT;
 
+    void setGender(catGender gender);
+    void setBreed(catBreed breed);
+
 public:
     Cat();
 
@@ -94,10 +97,8 @@ public:
     void setName(char* name);
     char* getName();
 
-    void setGender(catGender gender);
     const char* getGender();
 
-    void setBreed(catBreed breed);
     const char* getBreed();
 
     void setIsCatFixed(bool isCatFixed);
@@ -105,6 +106,8 @@ public:
 
     void setWeight(Weight weight);
     Weight getWeight() const;
+
+    virtual ~Cat();
 
     Cat* next;
 

@@ -62,6 +62,10 @@ bool Cat::getIsCatFixed() {
 
 // weight
 void Cat::setWeight(Weight weight) {
+    if (weight <=0) {
+        cout << "Cat weight must be > 0" << endl;
+        return;
+    }
     Cat::weight = weight;
 }
 
@@ -79,6 +83,15 @@ Cat::Cat() {
 
 Cat::Cat(char *name, catGender gender, catBreed breed, Weight weight) :gender(gender), breed(breed), weight(weight) {
     strcpy(Cat::name, name);
+}
+
+
+Cat::~Cat() {
+    strcpy(Cat::name, "0000000000000000000000000000000000000000000000000");
+    Cat::gender = UNKNOWN_GENDER;
+    Cat::breed = UNKNOWN_BREED;
+    Cat::weight = UNKNOWN_WEIGHT;
+    Cat::isCatFixed = false;
 }
 
 
