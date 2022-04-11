@@ -12,30 +12,27 @@
 #include <iostream>
 using namespace std;
 
-//int main() {
-//    Cat* catDatabaseHeadPointer;
-//    Cat c1("Loki", MALE, PERSIAN, 1.0);
-//    catDatabaseHeadPointer = &c1;
-//    Cat c2("Milo", MALE, MANX, 1.1);
-//    addCat(catDatabaseHeadPointer, &c2);
-//    Cat c3("Bella", FEMALE, MAINE_COON, 1.2);
-//    addCat(catDatabaseHeadPointer, &c3);
-//    Cat c4("Kali", FEMALE, SHORTHAIR, 1.3);
-//    addCat(catDatabaseHeadPointer, &c4);
-//    Cat c5("Trin", FEMALE, MANX, 1.4);
-//    addCat(catDatabaseHeadPointer, &c5);
-//    Cat c6("Chili", MALE, SHORTHAIR, 1.5);
-//    addCat(catDatabaseHeadPointer, &c6);
-//
-//    printAllCats(catDatabaseHeadPointer);
-//    deleteCat(catDatabaseHeadPointer, "Bella");
-//    printAllCats(catDatabaseHeadPointer);
-//    deleteAllCats(catDatabaseHeadPointer);
-//    printAllCats(catDatabaseHeadPointer);
-//}
+int main() {
+    cout << "Starting Animal Farm 2" << endl;
+    Cat* catDatabaseHeadPointer;
+    Cat c1("Loki", MALE, PERSIAN, 1.0);
+    catDatabaseHeadPointer = &c1;
+    Cat c2("Milo", MALE, MANX, 1.1);
+    addCat(catDatabaseHeadPointer, &c2);
+    Cat c3("Bella", FEMALE, MAINE_COON, 1.2);
+    addCat(catDatabaseHeadPointer, &c3);
+    Cat c4("Kali", FEMALE, SHORTHAIR, 1.3);
+    addCat(catDatabaseHeadPointer, &c4);
+    Cat c5("Trin", FEMALE, MANX, 1.4);
+    addCat(catDatabaseHeadPointer, &c5);
+    Cat c6("Chili", MALE, SHORTHAIR, 1.5);
+    addCat(catDatabaseHeadPointer, &c6);
+    printAllCats(catDatabaseHeadPointer);
+    deleteAllCats(catDatabaseHeadPointer);
+    cout << "Done with Animal Farm 2" << endl;
+}
 
 #ifdef DEBUG
-
 int main() {
     Cat* catDatabaseHeadPointer;
 
@@ -131,9 +128,6 @@ int main() {
 
 }
 #endif
-
-
-
 
 
 // name

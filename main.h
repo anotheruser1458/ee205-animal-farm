@@ -19,7 +19,7 @@
 #include <stdio.h>
 #define MAX_CATS 1024
 #define MAX_CAT_NAME 50
-#define DEBUG
+//#define DEBUG
 #define UNKNOWN_WEIGHT -1
 
 // catDatabase
