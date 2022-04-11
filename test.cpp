@@ -8,6 +8,37 @@
 ///// @author Maxwell Pauly <mgpauly@hawaii.edu>
 ///// @date   19_Mar_2022
 /////////////////////////////////////////////////////////////////////////////////
+#include "main.h"
+#include <iostream>
+using namespace std;
+
+int main() {
+    fprintf(stdout,"Starting Animal Farm 2\n\n");
+
+    Cat c1;
+    c1.setName("Mike");
+    printf("c1 Name = %s\n", c1.getName());
+
+    c1.setWeight(23.1);
+    cout << "c1 Weight = " << c1.getWeight() << endl;
+
+    c1.setIsCatFixed(true);
+    cout << "c1 isCatFixed = " << c1.getIsCatFixed() << endl;
+
+    c1.setGender(MALE);
+    cout << "c1 gender = " << c1.getGender() << endl;
+
+    c1.setBreed(MANX);
+    cout << "c1 greed = " << c1.getBreed() << endl;
+
+    fprintf(stdout,"Done with Animal Farm 2\n");
+    return 0;
+}
+
+
+
+
+
 //#include "main.h"
 //
 //int catDatabaseTest() {

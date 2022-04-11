@@ -10,30 +10,7 @@
 /////////////////////////////////////////////////////////////////////////////////
 //#include "main.h"
 //
-//static const char * const colorNames[] = {
-//        [BLACK] = "BLACK",
-//        [WHITE] = "WHITE",
-//        [RED] = "RED",
-//        [BLUE] = "BLUE",
-//        [GREEN] = "GREEN",
-//        [PINK] = "PINK",
-//        [UNKNOWN_COLOR] = "UNKNOWN_COLOR"
-//};
-//
-//static const char * const breedNames[] = {
-//        [UNKNOWN_BREED] = "UNKNOWN_BREED",
-//        [MAINE_COON] = "MAINE_COON",
-//        [MANX] = "MANX",
-//        [SHORTHAIR] = "SHORTHAIR",
-//        [PERSIAN] = "PERSIAN",
-//        [SPHYNX] = "SPHYNX",
-//};
-//
-//static const char * const genderNames[] = {
-//        [UNKNOWN_GENDER] = "UNKNOWN_GENDER",
-//        [MALE] = "MALE",
-//        [FEMALE] = "FEMALE",
-//};
+
 //
 //int printCat(struct cat catStructArray[], NumCats* totalCats, int index) {
 //    // less than 0

@@ -20,7 +20,7 @@
 #define MAX_CATS 1024
 #define MAX_CAT_NAME 50
 //#define DEBUG
-
+#define UNKNOWN_WEIGHT -1
 // catDatabase
 typedef enum {UNKNOWN_GENDER, MALE, FEMALE} catGender;
 typedef enum {UNKNOWN_BREED, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX} catBreed;
@@ -52,3 +52,57 @@ extern void updateCatCollar2(struct cat catStructArray[], int index, Color newCo
 extern void updateCatLicense(struct cat catStructArray[], int index, unsigned long long newLicense);
 extern int deleteCat(struct cat catStructArray[], NumCats* totalCats, int index);
 extern void deleteAllCats(struct cat catStructArray[], NumCats* totalCats);
+
+static const char * const colorNames[] = {
+        [BLACK] = "BLACK",
+        [WHITE] = "WHITE",
+        [RED] = "RED",
+        [BLUE] = "BLUE",
+        [GREEN] = "GREEN",
+        [PINK] = "PINK",
+        [UNKNOWN_COLOR] = "UNKNOWN_COLOR"
+};
+
+static const char * const breedNames[] = {
+        [UNKNOWN_BREED] = "UNKNOWN_BREED",
+        [MAINE_COON] = "MAINE_COON",
+        [MANX] = "MANX",
+        [SHORTHAIR] = "SHORTHAIR",
+        [PERSIAN] = "PERSIAN",
+        [SPHYNX] = "SPHYNX",
+};
+
+static const char * const genderNames[] = {
+        [UNKNOWN_GENDER] = "UNKNOWN_GENDER",
+        [MALE] = "MALE",
+        [FEMALE] = "FEMALE",
+};
+
+class Cat {
+protected:
+
+    char name[MAX_CAT_NAME];
+    catGender gender = UNKNOWN_GENDER;
+    catBreed breed = UNKNOWN_BREED;
+    bool isCatFixed = false;
+    Weight weight = UNKNOWN_WEIGHT;
+
+public:
+    void setName(char* name);
+    char* getName();
+
+    void setGender(catGender gender);
+    const char* getGender();
+
+    void setBreed(catBreed breed);
+    const char* getBreed();
+
+    void setIsCatFixed(bool isCatFixed);
+    bool getIsCatFixed();
+
+    void setWeight(Weight weight);
+    Weight getWeight() const;
+
+public:
+
+};
