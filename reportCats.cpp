@@ -30,7 +30,6 @@
 //    return 0;
 //}
 //
-//int printAllCats(struct cat catStructArray[], NumCats* totalCats) {
 //
 //    if (*totalCats == 0) {
 //        fprintf(stdout,"There are no cats on the farm.\n");

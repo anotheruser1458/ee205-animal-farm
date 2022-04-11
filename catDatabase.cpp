@@ -8,7 +8,9 @@
 ///// @author Maxwell Pauly <mgpauly@hawaii.edu>
 ///// @date   19_Mar_2022
 /////////////////////////////////////////////////////////////////////////////////
-//#include "main.h"
+#include "main.h"
+
+
 //
 //NumCats totalCats = 0;
 //struct cat cats[MAX_CATS];

@@ -74,22 +74,28 @@ Cat::Cat(char *name, catGender gender, catBreed breed, Weight weight) :gender(ge
 }
 
 void Cat::print() {
-
+    cout << "================================================================================" << endl;
+    cout << "Cat     name      " << getName() << endl;
+    cout << "Cat     gender    " << getGender() << endl;
+    cout << "Cat     breed     " << getBreed() << endl;
+    cout << "Cat     isFixed   " << getIsCatFixed() << endl;
+    cout << "Cat     weight    " << getWeight() << endl;
 }
 
-void Cat::validate() {
+bool Cat::validate() {
     if (strcmp(Cat::name, "") == 0) {
         cout << "Name can't be empty ['']" << endl;
-        return;
+        return false;
     }
     else if (strlen(Cat::name) >= MAX_CAT_NAME) {
         cout << "Name of cat must be less than " << MAX_CAT_NAME << endl;
-        return;
+        return false;
     }
     else if (Cat::weight <=0) {
         cout << "Cat weight must be > 0" << endl;
-        return;
+        return false;
     }
+    return true;
 }
 
 Cat::~Cat() {
