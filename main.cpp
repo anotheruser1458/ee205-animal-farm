@@ -12,23 +12,124 @@
 #include <iostream>
 using namespace std;
 
+//int main() {
+//    Cat* catDatabaseHeadPointer;
+//    Cat c1("Loki", MALE, PERSIAN, 1.0);
+//    catDatabaseHeadPointer = &c1;
+//    Cat c2("Milo", MALE, MANX, 1.1);
+//    addCat(catDatabaseHeadPointer, &c2);
+//    Cat c3("Bella", FEMALE, MAINE_COON, 1.2);
+//    addCat(catDatabaseHeadPointer, &c3);
+//    Cat c4("Kali", FEMALE, SHORTHAIR, 1.3);
+//    addCat(catDatabaseHeadPointer, &c4);
+//    Cat c5("Trin", FEMALE, MANX, 1.4);
+//    addCat(catDatabaseHeadPointer, &c5);
+//    Cat c6("Chili", MALE, SHORTHAIR, 1.5);
+//    addCat(catDatabaseHeadPointer, &c6);
+//
+//    printAllCats(catDatabaseHeadPointer);
+//    deleteCat(catDatabaseHeadPointer, "Bella");
+//    printAllCats(catDatabaseHeadPointer);
+//    deleteAllCats(catDatabaseHeadPointer);
+//    printAllCats(catDatabaseHeadPointer);
+//}
+
 #ifdef DEBUG
+
 int main() {
     Cat* catDatabaseHeadPointer;
 
-    cout << "Verify that a cat created with Cat() has all of the default\n"
+    cout << endl << "Verify that a cat created with Cat() has all of the default\n"
             "values set" << endl;
-    Cat c1;
-    cout << c1.getName() << endl;
-    cout << c1.getIsCatFixed() << endl;
-    cout << c1.getWeight() << endl;
-    cout << c1.getGender() << endl;
-    cout << c1.getBreed() << endl;
+    Cat c99;
+    cout << c99.getName() << endl;
+    cout << c99.getIsCatFixed() << endl;
+    cout << c99.getWeight() << endl;
+    cout << c99.getGender() << endl;
+    cout << c99.getBreed() << endl << endl;
+
+    cout << "Verify that a cat created with Cat() is not valid" << endl;
+    cout << (c99.validate() ? "true":"false") << endl << endl;
+
+    cout << "Set name to nullptr" << endl;
+    c99.setName(nullptr);
+    cout << endl << endl;
+
+    cout << "Set name to ''" << endl;
+    c99.setName("");
+    cout << endl << endl;
+
+    cout << "Set a 1 character name" << endl;
+    c99.setName("a");
+    cout << c99.getName() << endl;
+
+    //49 As
+    c99.setName("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+    cout << c99.getName() << endl;
+
+    // 51 As
+    c99.setName("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+    cout << endl;
+    Cat c98("max", MALE, MANX, 40.1);
+    c98.print();
+    cout << endl;
+
+    //protected, won't compile
+    //c99.setGender(FEMALE);
+
+    Cat c97("ralph", MALE, MAINE_COON, 32.1);
+    c97.print();
+    cout << endl;
+
+    //protected, won't compile
+    //c97.setBreed(MANX);
+
+    c97.setIsCatFixed(true);
+    c97.print();
+    cout << endl;
+
+    c97.setWeight(0);
+    c97.setWeight((float) 1/1024);
+    c97.print();
+    cout << endl;
+
+    try {
+        Cat c96("testName", UNKNOWN_GENDER, MAINE_COON, 32.3);
+    } catch (logic_error) {}
+    try {
+        Cat c95("testName2", MALE, UNKNOWN_BREED, 31.2);
+    } catch (logic_error) {}
+    try {
+        Cat c95("testName3", MALE, MAINE_COON, UNKNOWN_WEIGHT);
+    } catch (logic_error) {}
+    cout << endl << endl;
+
+    Cat c1("Loki", MALE, PERSIAN, 1.0);
+    catDatabaseHeadPointer = &c1;
+    Cat c2("Milo", MALE, MANX, 1.1);
+    addCat(catDatabaseHeadPointer, &c2);
+    Cat c3("Bella", FEMALE, MAINE_COON, 1.2);
+    addCat(catDatabaseHeadPointer, &c3);
+    Cat c4("Kali", FEMALE, SHORTHAIR, 1.3);
+    addCat(catDatabaseHeadPointer, &c4);
+    Cat c5("Trin", FEMALE, MANX, 1.4);
+    addCat(catDatabaseHeadPointer, &c5);
+    Cat c6("Chili", MALE, SHORTHAIR, 1.5);
+    addCat(catDatabaseHeadPointer, &c6);
+
+    Cat* foundCat = findCatByName(catDatabaseHeadPointer, "Bella");
+    foundCat->print();
+    cout << endl;
+
+    foundCat = findCatByName(catDatabaseHeadPointer, "Belinda");
+
+    deleteCat(catDatabaseHeadPointer, "Bella");
+    printAllCats(catDatabaseHeadPointer);
+    cout << endl;
+
+    deleteCat(catDatabaseHeadPointer, "Bella");
 
 }
-
-
-
 #endif
 
 
@@ -39,6 +140,18 @@ int main() {
 void Cat::setName(char* name) {
     if (name == nullptr) {
         cout << "Name can't be nullptr" << endl;
+        return;
+    }
+    if (strcmp(name, "") == 0) {
+        cout << "Name can't be empty ['']" << endl;
+        return;
+    }
+    else if (name == nullptr) {
+        cout << "Name can't be a null pointer" << endl;
+        return;
+    }
+    else if (strlen(name) >= MAX_CAT_NAME) {
+        cout << "Name of cat must be less than " << MAX_CAT_NAME << endl;
         return;
     }
     strcpy(Cat::name, name);
@@ -77,10 +190,15 @@ bool Cat::getIsCatFixed() {
 
 // weight
 void Cat::setWeight(Weight weight) {
+    if (weight <=0) {
+        cout << "Cat weight must be > 0" << endl;
+        return;
+    }
     Cat::weight = weight;
 }
 
 Weight Cat::getWeight() const {
+
     return weight;
 }
 
@@ -92,8 +210,24 @@ Cat::Cat() {
     Cat::isCatFixed = false;
 }
 
-Cat::Cat(char *name, catGender gender, catBreed breed, Weight weight) :gender(gender), breed(breed), weight(weight) {
-    strcpy(Cat::name, name);
+Cat::Cat(char *name, catGender gender, catBreed breed, Weight weight)  {
+    if(gender == UNKNOWN_GENDER) {
+        cout << "gender must not be UNKNOWN_GENDER" << endl;
+        throw logic_error("invalid gender");
+    }
+    else if (breed == UNKNOWN_BREED) {
+        cout << "breed must not be UNKNOWN_BREED" << endl;
+        throw logic_error("invalid breed");
+    }
+    else if (weight == UNKNOWN_WEIGHT) {
+        cout << "weight must not be UNKNOWN_WEIGHT (or -1)" << endl;
+        throw logic_error("invalid weight");
+    }
+
+    setName(name);
+    setWeight(weight);
+    setGender(gender);
+    setBreed(breed);
 }
 
 void Cat::print() {
@@ -131,6 +265,7 @@ Cat::~Cat() {
     Cat::breed = UNKNOWN_BREED;
     Cat::weight = UNKNOWN_WEIGHT;
     Cat::isCatFixed = false;
+    Cat::next = nullptr;
 }
 
 

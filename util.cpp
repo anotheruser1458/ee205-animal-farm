@@ -112,16 +112,24 @@ Cat* findCatByName(Cat *catDatabaseHeadPointer, char name[]) {
 }
 
 void printAllCats(Cat *catDatabaseHeadPointer ) {
+    //empty list
+    if(catDatabaseHeadPointer->next == nullptr && strcmp(catDatabaseHeadPointer->getName(), "0000000000000000000000000000000000000000000000000")==0) {
+        cout << "List is empty" << endl;
+        return;
+    }
+
     if (!validateDatabase(catDatabaseHeadPointer)) {
         cout << "Eror in database" << endl;
         return;
     }
+
     Cat* currentCat = catDatabaseHeadPointer;
     while(currentCat->next != nullptr) {
         currentCat->print();
         currentCat = currentCat->next;
     }
     currentCat->print();
+    cout << "done printing cats" << endl;
 }
 
 //
