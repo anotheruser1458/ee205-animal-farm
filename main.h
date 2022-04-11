@@ -90,25 +90,24 @@ protected:
     void setBreed(catBreed breed);
 
 public:
-    Cat();
+    Cat* next;
 
+    Cat();
     Cat(char *name, catGender gender, catBreed breed, Weight weight);
 
     void setName(char* name);
     char* getName();
-
     const char* getGender();
-
     const char* getBreed();
-
     void setIsCatFixed(bool isCatFixed);
     bool getIsCatFixed();
-
     void setWeight(Weight weight);
     Weight getWeight() const;
 
+    void print();
+    void validate();
+
     virtual ~Cat();
 
-    Cat* next;
 
 };

@@ -39,13 +39,19 @@ int main() {
 
     //name setter
     c1.setName(nullptr);
+    c1.validate();
+
     c1.setName("");
+    c1.validate();
+
     c1.setName("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+    c1.validate();
+
+    c1.setWeight(0);
+    c1.validate();
     cout << endl;
 
-    //weight setter
-    c1.setWeight(0);
-    cout << endl;
+
 
     fprintf(stdout,"Done with Animal Farm 2\n");
     return 0;

@@ -18,14 +18,6 @@ void Cat::setName(char* name) {
         cout << "Name can't be nullptr" << endl;
         return;
     }
-    else if (strcmp(name, "") == 0) {
-        cout << "Name can't be empty ['']" << endl;
-        return;
-    }
-    else if (strlen(name) >= MAX_CAT_NAME) {
-        cout << "Name of cat must be less than " << MAX_CAT_NAME << endl;
-        return;
-    }
     strcpy(Cat::name, name);
 }
 
@@ -62,10 +54,6 @@ bool Cat::getIsCatFixed() {
 
 // weight
 void Cat::setWeight(Weight weight) {
-    if (weight <=0) {
-        cout << "Cat weight must be > 0" << endl;
-        return;
-    }
     Cat::weight = weight;
 }
 
@@ -85,6 +73,24 @@ Cat::Cat(char *name, catGender gender, catBreed breed, Weight weight) :gender(ge
     strcpy(Cat::name, name);
 }
 
+void Cat::print() {
+
+}
+
+void Cat::validate() {
+    if (strcmp(Cat::name, "") == 0) {
+        cout << "Name can't be empty ['']" << endl;
+        return;
+    }
+    else if (strlen(Cat::name) >= MAX_CAT_NAME) {
+        cout << "Name of cat must be less than " << MAX_CAT_NAME << endl;
+        return;
+    }
+    else if (Cat::weight <=0) {
+        cout << "Cat weight must be > 0" << endl;
+        return;
+    }
+}
 
 Cat::~Cat() {
     strcpy(Cat::name, "0000000000000000000000000000000000000000000000000");
