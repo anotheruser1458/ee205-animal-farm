@@ -67,10 +67,10 @@ public:
     Cat* next = nullptr;
 
     Cat();
-    Cat(char *name, catGender gender, catBreed breed, Weight weight);
+    Cat(const char *name, catGender gender, catBreed breed, Weight weight);
 
-    void setName(char* name);
-    char* getName();
+    void setName(const char* name);
+    const char* getName();
     const char* getGender();
     const char* getBreed();
     void setIsCatFixed(bool isCatFixed);

@@ -12,6 +12,7 @@
 #include <iostream>
 using namespace std;
 
+
 int main() {
     cout << "Starting Animal Farm 2" << endl;
     Cat* catDatabaseHeadPointer;
@@ -131,7 +132,7 @@ int main() {
 
 
 // name
-void Cat::setName(char* name) {
+void Cat::setName(const char* name) {
     if (name == nullptr) {
         cout << "Name can't be nullptr" << endl;
         return;
@@ -151,9 +152,10 @@ void Cat::setName(char* name) {
     strcpy(Cat::name, name);
 }
 
-char* Cat::getName() {
+const char* Cat::getName() {
     return Cat::name;
 }
+
 
 // gender
 void Cat::setGender(catGender gender) {
@@ -204,7 +206,7 @@ Cat::Cat() {
     Cat::isCatFixed = false;
 }
 
-Cat::Cat(char *name, catGender gender, catBreed breed, Weight weight)  {
+Cat::Cat(const char *name, catGender gender, catBreed breed, Weight weight)  {
     if(gender == UNKNOWN_GENDER) {
         cout << "gender must not be UNKNOWN_GENDER" << endl;
         throw logic_error("invalid gender");
