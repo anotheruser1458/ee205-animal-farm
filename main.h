@@ -80,7 +80,6 @@ static const char * const genderNames[] = {
 
 class Cat {
 protected:
-
     char name[MAX_CAT_NAME];
     catGender gender = UNKNOWN_GENDER;
     catBreed breed = UNKNOWN_BREED;
@@ -88,6 +87,10 @@ protected:
     Weight weight = UNKNOWN_WEIGHT;
 
 public:
+    Cat();
+
+    Cat(char *name, catGender gender, catBreed breed, Weight weight);
+
     void setName(char* name);
     char* getName();
 
@@ -103,6 +106,6 @@ public:
     void setWeight(Weight weight);
     Weight getWeight() const;
 
-public:
+    Cat* next;
 
 };

@@ -14,8 +14,21 @@ using namespace std;
 
 // name
 void Cat::setName(char* name) {
+    if (name == nullptr) {
+        cout << "Name can't be nullptr" << endl;
+        return;
+    }
+    else if (strcmp(name, "") == 0) {
+        cout << "Name can't be empty ['']" << endl;
+        return;
+    }
+    else if (strlen(name) >= MAX_CAT_NAME) {
+        cout << "Name of cat must be less than " << MAX_CAT_NAME << endl;
+        return;
+    }
     strcpy(Cat::name, name);
 }
+
 char* Cat::getName() {
     return Cat::name;
 }
@@ -56,6 +69,17 @@ Weight Cat::getWeight() const {
     return weight;
 }
 
+Cat::Cat() {
+    strcpy(Cat::name, "no name");
+    Cat::gender = UNKNOWN_GENDER;
+    Cat::breed = UNKNOWN_BREED;
+    Cat::weight = UNKNOWN_WEIGHT;
+    Cat::isCatFixed = false;
+}
+
+Cat::Cat(char *name, catGender gender, catBreed breed, Weight weight) :gender(gender), breed(breed), weight(weight) {
+    strcpy(Cat::name, name);
+}
 
 
 

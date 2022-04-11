@@ -29,7 +29,20 @@ int main() {
     cout << "c1 gender = " << c1.getGender() << endl;
 
     c1.setBreed(MANX);
-    cout << "c1 greed = " << c1.getBreed() << endl;
+    cout << "c1 breed = " << c1.getBreed() << endl << endl;
+
+    Cat c2("Maxwell", MALE, MANX, 23.2);
+    printf("c2 Name = %s\n", c2.getName());
+    cout << "c2 Weight = " << c2.getWeight() << endl;
+    cout << "c2 isCatFixed = " << c2.getIsCatFixed() << endl;
+    cout << "c2 gender = " << c2.getGender() << endl;
+    cout << "c2 breed = " << c2.getBreed() << endl;
+
+    //name setter
+    c1.setName(nullptr);
+    c1.setName("");
+    c1.setName("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+
 
     fprintf(stdout,"Done with Animal Farm 2\n");
     return 0;
