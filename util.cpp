@@ -29,10 +29,13 @@ bool validateDatabase(Cat *catDatabaseHeadPointer) {
 }
 
 bool addCat(Cat *catDatabaseHeadPointer, Cat* cat) {
-//    if (!validateDatabase(catDatabaseHeadPointer)) {
-//        cout << "Eror in database" << endl;
-//        return false;
-//    }
+    if (!validateDatabase(catDatabaseHeadPointer)) {
+        cout << "Eror in database" << endl;
+        return false;
+    }
+    if (!cat->validate()) {
+        return false;
+    }
 
     // call validate on new cat before adding
     Cat* currentCat = catDatabaseHeadPointer;
@@ -43,12 +46,35 @@ bool addCat(Cat *catDatabaseHeadPointer, Cat* cat) {
     return true;
 }
 
-bool deleteCat(Cat *catDatabaseHeadPointer) {
+bool deleteCat(Cat *catDatabaseHeadPointer, char name[]) {
     if (!validateDatabase(catDatabaseHeadPointer)) {
         cout << "Eror in database" << endl;
         return false;
     }
 
+    Cat *currentCat, *previousCat;
+    currentCat = catDatabaseHeadPointer;
+    previousCat = catDatabaseHeadPointer;
+
+    while(currentCat->next != nullptr) {
+        if(strcmp(currentCat->getName(), name) == 0) {
+            previousCat->next = currentCat->next;
+            currentCat->~Cat();
+            return true;
+        }
+        previousCat = currentCat;
+        currentCat = currentCat->next;
+    }
+
+    // check last cat in db
+    if(strcmp(currentCat->getName(), name) == 0) {
+        previousCat->next = nullptr;
+        currentCat->~Cat();
+        return true;
+    }
+
+    cout << "Cat not found or deleted" << endl;
+    return false;
 }
 
 bool deleteAllCats(Cat *catDatabaseHeadPointer) {
@@ -57,17 +83,38 @@ bool deleteAllCats(Cat *catDatabaseHeadPointer) {
         return false;
     }
 
+    Cat* currentCat = catDatabaseHeadPointer;
+    Cat* nextCat;
+    while(currentCat->next != nullptr) {
+        nextCat = currentCat->next;
+        currentCat->~Cat();
+    }
+    currentCat->~Cat();
+    cout << "All cats deleted" << endl;
+    return true;
 }
 
 Cat* findCatByName(Cat *catDatabaseHeadPointer, char name[]) {
+    Cat* currentCat = catDatabaseHeadPointer;
+    while(currentCat->next != nullptr) {
+        if(strcmp(name, currentCat->getName()) == 0) {
+            return currentCat;
+        }
+        currentCat = currentCat->next;
+    }
+    if(strcmp(name, currentCat->getName()) == 0) {
+        return currentCat;
+    }
 
+    cout << "Cat not found" << endl;
+    return nullptr;
 }
 
 void printAllCats(Cat *catDatabaseHeadPointer ) {
-//    if (!validateDatabase(catDatabaseHeadPointer)) {
-//        cout << "Eror in database" << endl;
-//        return;
-//    }
+    if (!validateDatabase(catDatabaseHeadPointer)) {
+        cout << "Eror in database" << endl;
+        return;
+    }
     Cat* currentCat = catDatabaseHeadPointer;
     while(currentCat->next != nullptr) {
         currentCat->print();

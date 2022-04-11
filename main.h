@@ -43,7 +43,7 @@ struct cat {
 
 //extern void initializeCatsStructArray(struct cat catStructArray[] );
 //extern int addCat(struct cat catStructArray[], NumCats* totalCats, char name[], catGender gender, catBreed breed, bool isFixed, Weight* weight, Color collarColor1, Color collarColor2, unsigned long long license);
-////extern int printAllCats(struct cat catStructArray[], NumCats* totalCats);
+//extern int printAllCats(struct cat catStructArray[], NumCats* totalCats);
 //extern int findCat(struct cat catStructArray[], NumCats* totalCats, char name[MAX_CAT_NAME]);
 //extern int updateCatName(struct cat catStructArray[], NumCats* totalCats, int index, char newName[]);
 //extern int printCat(struct cat catStructArray[], NumCats* totalCats, int index);
@@ -116,6 +116,6 @@ public:
 bool validateDatabase(Cat *catDatabaseHeadPointer);
 void printAllCats(Cat *catDatabaseHeadPointer );
 bool addCat(Cat *catDatabaseHeadPointer, Cat* cat);
-bool deleteCat(Cat *catDatabaseHeadPointer);
+bool deleteCat(Cat *catDatabaseHeadPointer, char name[]);
 bool deleteAllCats(Cat *catDatabaseHeadPointer);
 Cat* findCatByName(Cat *catDatabaseHeadPointer, char name[]);

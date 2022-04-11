@@ -75,16 +75,20 @@ Cat::Cat(char *name, catGender gender, catBreed breed, Weight weight) :gender(ge
 
 void Cat::print() {
     cout << "================================================================================" << endl;
-    cout << "Cat     name      " << getName() << endl;
-    cout << "Cat     gender    " << getGender() << endl;
-    cout << "Cat     breed     " << getBreed() << endl;
-    cout << "Cat     isFixed   " << getIsCatFixed() << endl;
-    cout << "Cat     weight    " << getWeight() << endl;
+    cout << "Cat        name         " << getName() << endl;
+    cout << "Cat        gender       " << getGender() << endl;
+    cout << "Cat        breed        " << getBreed() << endl;
+    cout << "Cat        isFixed      " << getIsCatFixed() << endl;
+    cout << "Cat        weight       " << getWeight() << endl;
 }
 
 bool Cat::validate() {
     if (strcmp(Cat::name, "") == 0) {
         cout << "Name can't be empty ['']" << endl;
+        return false;
+    }
+    else if (Cat::name == nullptr) {
+        cout << "Name can't be a null pointer" << endl;
         return false;
     }
     else if (strlen(Cat::name) >= MAX_CAT_NAME) {
