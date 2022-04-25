@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.21)
-project(ee205_lab_08d_animal_farm_2)
+project(ee205_lab_08d_animal_farm_3)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(ee205_lab_08d_animal_farm_2 main.cpp main.h test.cpp util.cpp)
+add_executable(ee205_lab_08d_animal_farm_3 main.cpp)
