@@ -15,7 +15,7 @@
 class Node {
 protected:
     static bool compareByAddress(const Node *node1, const Node *node2);
-    Node *next{};
+    Node *next;
 
 public:
     virtual void dump() const;

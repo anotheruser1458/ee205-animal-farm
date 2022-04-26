@@ -10,26 +10,11 @@
 ///////////////////////////////////////////////////////////////////////////////
 #include "Node.h"
 #include <iostream>
-/// Format the heading for dumping members of a class to the console
-///
-/// Print =====================
-#define PRINT_HEADING_FOR_DUMP \
- /* Print =========================================================== */ \
- std::cout << std::setw(80) << std::setfill( '=' ) << "" << std::endl
-/// Format a line for dumping the members of a class to the console.
-/// Setup the fields for printing (space pad, left justify, etc.)
-#define FORMAT_LINE_FOR_DUMP( className, member ) \
- std::cout << std::setfill( ' ' ) /* Space pad */ \
- << std::left /* Left justify */ \
- << std::boolalpha /* Print `true` or `false` for `bool`s */ \
- << std::setw(8) << (className) \
- << std::setw(20) << (member) \
- << std::setw(52) /* (data) */
 
 using namespace std;
 
 bool Node::compareByAddress(const Node *node1, const Node *node2) {
-    return false;
+    return node1 > node2;
 }
 
 void Node::dump() const {
@@ -39,9 +24,16 @@ void Node::dump() const {
 }
 
 bool Node::validate() const noexcept {
-    return false;
+    if (next == nullptr) {
+        return false;
+    }
+    if (next == next->next) {
+        cout << "Next points to itself, recursion risk" << endl;
+        return false;
+    }
+    return true;
 }
 
 bool Node::operator>(const Node &rightSide) {
-    return false;
+    return compareByAddress(this, &rightSide);
 }
