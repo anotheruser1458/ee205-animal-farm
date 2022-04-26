@@ -2,32 +2,25 @@
 ///         University of Hawaii, College of Engineering
 /// @brief  ee205_lab_08d_animal_farm_3 - EE 205 - Spr 2022
 ///
-/// @file test.cpp
+/// @file Mammal.h
 /// @version 1.0
 ///
 /// @author Maxwell Pauly <mgpauly@hawaii.edu>
-/// @date   24_Apr_2022
+/// @date   26_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
-
-#include "main.h"
-#include "Node.h"
+#ifndef EE205_LAB_08D_ANIMAL_FARM_3_MAMMAL_H
+#define EE205_LAB_08D_ANIMAL_FARM_3_MAMMAL_H
 #include "Animal.h"
-#include <iostream>
 
-#ifdef DEBUG
+class Mammal : public Animal {
 
-void nodeTests() {
-    Node n1;
-    n1.dump();
-}
+protected:
+    Color color;
 
-void animalTests() {
+public:
+    static const string MAMMAL_NAME;
 
-}
+};
 
-int main() {
-    nodeTests();
-    animalTests();
-    return 0;
-}
-#endif
+
+#endif //EE205_LAB_08D_ANIMAL_FARM_3_MAMMAL_H

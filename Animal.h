@@ -12,27 +12,39 @@
 #define EE205_LAB_08D_ANIMAL_FARM_3_ANIMAL_H
 #pragma once
 #include "Node.h"
+#include "Weight.h"
 #include <iostream>
 using namespace std;
+
+enum class Color{UNKNOWN_COLOR, BLACK, BROWN, WHITE, RED, BLUE, GREEN, GINGER, CREAM, CINNAMON, CALICO};
+enum class Gender{UNKNOWN_GENDER, MALE, FEMALE};
 
 class Animal: public Node {
 private:
     string species;
     string classification;
-    // @todo
-    // Gender gender;
-    // Weight weight;
+    Gender gender;
+    Weight weight;
 
 protected:
-//  @todo
-//    void setGender(const Gender newGender);
+    void setGender(Gender newGender);
 
 public:
-    static const string KINGDOM_NAME;
+    static string KINGDOM_NAME;
 
-// @todo
-//Animal(const Weight::t_weight newMaxWeight, const string &newClassification, const string &newSpecies);
-
+    Animal(float newMaxWeight, string &newClassification, string &newSpecies);
+    Animal(Gender newGender, float newWeight, float newMaxWeight, string &newClassification, string &newSpecies);
+    string getKingdom() noexcept;
+    string getClassification() const noexcept;
+    string getSpecies() const noexcept;
+    Gender getGender() const noexcept;
+    float getWeight() const noexcept;
+    void setWeight(float newWeight);
+    virtual string speak() const noexcept=0;
+    void dump() const noexcept override;
+    bool validate() const noexcept override;
+    static bool validateClassification(string &checkClassification) noexcept;
+    static bool validateSpecies(string &checkSpecies) noexcept;
 };
 
 
