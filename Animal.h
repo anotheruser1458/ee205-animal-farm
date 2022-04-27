@@ -22,7 +22,7 @@ private:
     Gender gender;
     Weight weight;
 public:
-    string KINGDOM_NAME = "Kindom Animalia";
+    static string KINGDOM_NAME;
 
     Animal(Gender newGender, float newWeight, float newMaxWeight, string newClassification, string newSpecies) {
         setGender(newGender);
@@ -37,7 +37,8 @@ public:
     void setMaxWeight(float newMaxWeight);
     void setClassification(const string &classification);
     void setSpecies(const string &species);
-    void dump();
+    float getMaxWeight();
+    virtual void dump();
 };
 
 

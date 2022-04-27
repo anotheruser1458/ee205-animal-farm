@@ -15,6 +15,8 @@
 #include "Gender.h"
 #include "Animal.h"
 #include "Color.h"
+#include "Mammal.h"
+#include "Cat.h"
 using namespace std;
 
 ostream & operator<<(std::ostream &lhs_stream, const Gender &rhs_Gender) {
@@ -56,19 +58,18 @@ void nodeTests() {
 }
 
 void animalTests() {
-    cout << "ANIMAL TESTS" << endl << endl;
-    Animal a1(Gender::MALE, 23.1, 40, "Feline", "Tiger");
-    a1.dump();
+
 }
 
 void mammalTests() {
-    cout << "MAMMAL TESTS" << endl << endl;
 
 }
 
 void catTests() {
     cout << "CAT TESTS" << endl << endl;
-
+    Cat c1("Mittens", Color::RED, Gender::MALE, 23);
+    c1.dump();
+    cout << c1.getMaxWeight() << endl;
 }
 
 void listTests() {

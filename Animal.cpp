@@ -10,6 +10,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 #include "Animal.h"
 
+string Animal::KINGDOM_NAME = "Animalia";
+
 void Animal::setGender(Gender gender) {
     Animal::gender = gender;
 }
@@ -38,4 +40,8 @@ void Animal::dump() {
     cout << "Animal  species            " << species << endl;
     cout << "Animal  gender             " << gender << endl;
     cout << "Animal  weight             " << weight.getWeight() << endl;
+}
+
+float Animal::getMaxWeight() {
+    return weight.getMaxWeight();
 }
