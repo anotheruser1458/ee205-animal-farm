@@ -30,3 +30,7 @@ bool Node::validate() const noexcept {
 bool Node::operator>(const Node &rightSide) {
     return false;
 }
+
+Node *Node::getNext() {
+    return next;
+}
