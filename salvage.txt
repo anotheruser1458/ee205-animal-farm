@@ -1,20 +1,41 @@
-///////////////////////////////////////////////////////////////////////////////
-///         University of Hawaii, College of Engineering
-/// @brief  ee205_lab_08d_animal_farm_3 - EE 205 - Spr 2022
-///
-/// @file test.cpp
-/// @version 1.0
-///
-/// @author Maxwell Pauly <mgpauly@hawaii.edu>
-/// @date   24_Apr_2022
-///////////////////////////////////////////////////////////////////////////////
 
-#include "main.h"
-#include <iostream>
-#include "Node.h"
-#include "Gender.h"
-#include "Color.h"
-using namespace std;
+dump
+
+void Node::dump() const {
+    cout << PRINT_HEADING_FOR_DUMP << endl;
+    cout << "Node    this               " << this << endl;
+    cout << "Node    next               " << Node::next << endl;
+}
+
+void Animal::dump() const noexcept {
+    Node::dump();
+    cout << "Animal  this               " << this << endl;
+    cout << "Animal  kingdom            " << KINGDOM_NAME << endl;
+    cout << "Animal  classification     " << classification << endl;
+    cout << "Animal  species            " << species << endl;
+    cout << "Animal  gender             " << gender << endl;
+    cout << "Animal  weight             " << weight.getWeight() << endl;
+}
+
+void Mammal::dump() const noexcept {
+    Animal::dump();
+    cout << "Mammal  color              " << color << endl;
+
+}
+
+void Cat::dump() const noexcept {
+    Mammal::dump();
+    cout << "Cat     name               " << name << endl;
+    cout << "Cat     isFixed            " << (isFixed()?"true":"false") << endl;
+}
+
+
+
+
+
+enum class
+
+
 
 ostream & operator<<(std::ostream &lhs_stream, const Gender &rhs_Gender) {
     switch (rhs_Gender) {
@@ -45,23 +66,3 @@ ostream & operator<<(ostream &lhs_stream, const Color &rhs_Color) {
     }
     return lhs_stream;
 }
-
-#ifdef DEBUG
-
-
-void nodeTests() {
-    Node n1;
-    n1.dump();
-}
-
-void animalTests() {
-    cout << Gender::MALE << endl;
-    cout << Color::BLACK << endl;
-}
-
-int main() {
-    nodeTests();
-    animalTests();
-    return 0;
-}
-#endif
