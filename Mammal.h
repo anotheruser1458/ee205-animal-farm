@@ -8,9 +8,8 @@
 /// @author Maxwell Pauly <mgpauly@hawaii.edu>
 /// @date   26_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
-#ifndef EE205_LAB_08D_ANIMAL_FARM_3_MAMMAL_H
-#define EE205_LAB_08D_ANIMAL_FARM_3_MAMMAL_H
 #include "Animal.h"
+#pragma once
 
 class Mammal : public Animal {
 
@@ -30,6 +29,3 @@ public:
     void setColor( Color newColor) noexcept;
     void dump() const noexcept override;
 };
-
-
-#endif //EE205_LAB_08D_ANIMAL_FARM_3_MAMMAL_H

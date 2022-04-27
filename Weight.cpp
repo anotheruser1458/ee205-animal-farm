@@ -12,6 +12,8 @@
 #include "Weight.h"
 #include <iostream>
 #include <stdexcept>
+#pragma once
+
 using namespace std;
 
 

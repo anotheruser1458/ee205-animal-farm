@@ -8,9 +8,9 @@
 /// @author Maxwell Pauly <mgpauly@hawaii.edu>
 /// @date   26_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
-#ifndef EE205_LAB_08D_ANIMAL_FARM_3_LIST_H
-#define EE205_LAB_08D_ANIMAL_FARM_3_LIST_H
+
 #include "Node.h"
+#pragma once
 
 class List {
 protected:
@@ -30,6 +30,3 @@ public:
     static Node * get_next(const Node *currentNode);
 
 };
-
-
-#endif //EE205_LAB_08D_ANIMAL_FARM_3_LIST_H

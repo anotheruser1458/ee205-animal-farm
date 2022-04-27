@@ -2,22 +2,19 @@
 ///         University of Hawaii, College of Engineering
 /// @brief  ee205_lab_08d_animal_farm_3 - EE 205 - Spr 2022
 ///
-/// @file SinglyLinkedList.h
+/// @file Color.h
 /// @version 1.0
 ///
 /// @author Maxwell Pauly <mgpauly@hawaii.edu>
 /// @date   26_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "List.h"
 #pragma once
 
-class SinglyLinkedList : public List{
-public:
-    SinglyLinkedList();
-    void push_front(Node *newNode);
-    Node * pop_front() noexcept override;
-    void insert_after(Node *currentNode, Node *newNode);
-    void dump() const noexcept override;
-    bool validate() const noexcept override;
+enum class Color {
+    UNKNOWN_COLOR=0 , BLACK , BROWN , WHITE ,
+    RED , BLUE , GREEN , GINGER ,
+    CREAM , CINNAMON , CALICO
 };
+
+std::ostream & operator<<(std::ostream &lhs_stream, const Color &rhs_Color);

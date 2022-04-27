@@ -8,9 +8,9 @@
 /// @author Maxwell Pauly <mgpauly@hawaii.edu>
 /// @date   26_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
-#ifndef EE205_LAB_08D_ANIMAL_FARM_3_CAT_H
-#define EE205_LAB_08D_ANIMAL_FARM_3_CAT_H
+
 #include "Mammal.h"
+#pragma once
 
 class Cat : public Mammal{
 protected:
@@ -40,4 +40,3 @@ public:
 };
 
 
-#endif //EE205_LAB_08D_ANIMAL_FARM_3_CAT_H

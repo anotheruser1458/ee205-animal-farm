@@ -8,8 +8,6 @@
 /// @author Maxwell Pauly <mgpauly@hawaii.edu>
 /// @date   24_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
-#ifndef EE205_LAB_08D_ANIMAL_FARM_3_WEIGHT_H
-#define EE205_LAB_08D_ANIMAL_FARM_3_WEIGHT_H
 
 #pragma once
 #include <ostream>
@@ -23,7 +21,6 @@ private:
     enum UnitOfWeight unitOfWeight = POUND;
     float weight = UNKNOWN_WEIGHT;
     float maxWeight = UNKNOWN_WEIGHT;
-    void setMaxWeight(float newMaxWeight);
     void setUnitOfWeight(UnitOfWeight newUnitOfWeight);
 
 public:
@@ -31,6 +28,7 @@ public:
     constexpr static const float KILOS_IN_A_POUND = 0.453592;
     constexpr static const float SLUGS_IN_A_POUND = 0.031081;
 
+    void setMaxWeight(float newMaxWeight);
     Weight() noexcept;
     Weight(float newWeight);
     Weight(UnitOfWeight newUnitOfWeight) noexcept;
@@ -59,5 +57,3 @@ public:
     static float convertWeight(float fromWeight, UnitOfWeight fromUnit, UnitOfWeight toUnit) noexcept;
 
 };
-
-#endif

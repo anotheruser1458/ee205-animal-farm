@@ -8,16 +8,17 @@
 /// @author Maxwell Pauly <mgpauly@hawaii.edu>
 /// @date   24_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
-#ifndef EE205_LAB_08D_ANIMAL_FARM_3_ANIMAL_H
-#define EE205_LAB_08D_ANIMAL_FARM_3_ANIMAL_H
+
 #pragma once
 #include "Node.h"
 #include "Weight.h"
+#include "Gender.h"
+#include "Color.h"
 #include <iostream>
 using namespace std;
 
-enum class Color{UNKNOWN_COLOR, BLACK, BROWN, WHITE, RED, BLUE, GREEN, GINGER, CREAM, CINNAMON, CALICO};
-enum class Gender{UNKNOWN_GENDER, MALE, FEMALE};
+
+
 
 class Animal: public Node {
 private:
@@ -45,7 +46,6 @@ public:
     bool validate() const noexcept override;
     static bool validateClassification(string &checkClassification) noexcept;
     static bool validateSpecies(string &checkSpecies) noexcept;
+    void setMaxWeight(float newMaxWeight);
+
 };
-
-
-#endif //EE205_LAB_08D_ANIMAL_FARM_3_ANIMAL_H

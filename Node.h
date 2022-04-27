@@ -8,8 +8,7 @@
 /// @author Maxwell Pauly <mgpauly@hawaii.edu>
 /// @date   24_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
-#ifndef EE205_LAB_08D_ANIMAL_FARM_3_NODE_H
-#define EE205_LAB_08D_ANIMAL_FARM_3_NODE_H
+#pragma once
 
 
 class Node {
@@ -22,6 +21,3 @@ public:
     virtual bool validate() const noexcept;
     virtual bool operator>(const Node &rightSide);
 };
-
-
-#endif //EE205_LAB_08D_ANIMAL_FARM_3_NODE_H

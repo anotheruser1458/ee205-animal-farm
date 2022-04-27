@@ -11,6 +11,7 @@
 #include "Animal.h"
 #include <iostream>
 #include "boost/algorithm/string/trim.hpp"
+#include "Gender.h"
 using namespace std;
 
 string Animal::KINGDOM_NAME = "Kingdom Animalia";
@@ -20,6 +21,8 @@ void Animal::setGender(Gender newGender) {
 }
 
 Animal::Animal(const float newMaxWeight, string &newClassification, string &newSpecies) {
+
+    // I'm using boost to always trim whitespace, should never throw errors here
     if (!validateSpecies(newSpecies)) {
         throw invalid_argument("Need to use correct species");
     }
@@ -29,20 +32,24 @@ Animal::Animal(const float newMaxWeight, string &newClassification, string &newS
     if (!validate()) {
         throw invalid_argument("Animal is not valid");
     }
-    //weight max?
+
+    setMaxWeight(newMaxWeight);
 }
 
-Animal::Animal(const Gender newGender, const float newWeight, const float newMaxWeight,string &newClassification,
+Animal::Animal(Gender newGender, const float newWeight, const float newMaxWeight,string &newClassification,
                string &newSpecies) {
     setGender(newGender);
     setWeight(newWeight);
-    // weight max?
+    setMaxWeight(newMaxWeight);
+
     if (!validateSpecies(newSpecies)) {
         throw invalid_argument("Need to use correct species");
     }
     if (!validateClassification(newClassification)) {
         throw invalid_argument("Need to use correct classification");
     }
+    species = newSpecies;
+    classification = newClassification;
 }
 
 string Animal::getClassification() const noexcept {
@@ -70,7 +77,7 @@ void Animal::dump() const noexcept {
     cout << species << endl;
     cout << classification << endl;
     //@todo fix this
-    cout << (int)Animal::gender << endl;
+    cout << gender << endl;
     cout << weight.getWeight() << endl;
 }
 
@@ -95,4 +102,8 @@ bool Animal::validateSpecies(string &checkSpecies) noexcept {
 string Animal::getKingdom() noexcept {
     cout << Animal::KINGDOM_NAME << endl;
 
+}
+
+void Animal::setMaxWeight(float newMaxWeight) {
+    weight.setMaxWeight(newMaxWeight);
 }

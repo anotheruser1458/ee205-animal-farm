@@ -8,9 +8,7 @@
 /// @author Maxwell Pauly <mgpauly@hawaii.edu>
 /// @date   24_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
-#ifndef EE205_LAB_08D_ANIMAL_FARM_3_MAIN_H
-#define EE205_LAB_08D_ANIMAL_FARM_3_MAIN_H
+
 #pragma once
 #define DEBUG
 
-#endif //EE205_LAB_08D_ANIMAL_FARM_3_MAIN_H
