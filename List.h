@@ -18,23 +18,14 @@ protected:
     unsigned int count;
 public:
     bool empty();
-
     unsigned int size();
-
     bool isIn(Node *aNode);
-
     bool isSorted();
-
     Node *get_first();
-
     void deleteAllNodes() noexcept;
-
     virtual Node *pop_front() noexcept = 0;
-
     virtual void dump() const noexcept = 0;
-
     virtual bool validate() const noexcept = 0;
-
     static Node *get_next(Node *currentNode);
 };
 

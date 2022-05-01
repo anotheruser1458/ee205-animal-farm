@@ -97,16 +97,20 @@ void singlyLinkedListTests() {
 
     Cat *c3 = (Cat*) SLL1.get_next(c2);
     c3->dump();
-
     cout << "Is SLL1 validated? " << (SLL1.validate()? "true":"false") << endl;
+
+    SLL1.dump();
+    SLL1.deleteAllNodes();
+    cout << endl << endl << endl;
+    SLL1.dump();
 }
 
 int main() {
     cout << "#####################################" << endl << endl;
- //   nodeTests();
- //   animalTests();
- //   mammalTests();
- //   catTests();
+    nodeTests();
+    animalTests();
+    mammalTests();
+    catTests();
     singlyLinkedListTests();
     cout << endl << "####################################" << endl;
     return 0;

@@ -57,7 +57,7 @@ Node *List::get_first() {
 
 void List::deleteAllNodes() noexcept {
     assert( validate() );
-    while( head != nullptr ) {
+    while( head->next != nullptr ) {
         pop_front();
     }
 #ifdef DEBUG
