@@ -83,8 +83,8 @@ void singlyLinkedListTests() {
     cout << c1->speak() << endl;
     cout << "Is list empty? " << (SLL1.empty() ? "true":"false") << endl;
 
-    SLL1.push_front(new Cat("Gregory"));
-    SLL1.push_front(new Cat("Antohony"));
+    SLL1.push_front( new Cat("Gregory"));
+    SLL1.push_front( new Cat("Antohony"));
     SLL1.push_front(new Cat("Thomas"));
     cout << "Is list sorted? " << (SLL1.isSorted()?"true":"false") << endl;
     SLL1.dump();
@@ -97,10 +97,10 @@ void singlyLinkedListTests() {
 
 int main() {
     cout << "#####################################" << endl << endl;
- //   nodeTests();
- //   animalTests();
-  //  mammalTests();
- //catTests();
+    nodeTests();
+    animalTests();
+    mammalTests();
+    catTests();
     singlyLinkedListTests();
     cout << endl << "####################################" << endl;
 }

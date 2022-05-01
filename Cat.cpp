@@ -64,5 +64,4 @@ bool Cat::validate() {
     if (!validateName(name)) {
         return false;
     }
-
 }

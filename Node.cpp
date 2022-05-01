@@ -20,7 +20,7 @@ bool Node::compareByAddress(const Node *node1, const Node *node2) {
     return false;
 }
 
-void Node::dump() const {
+void Node::dump() {
     cout << PRINT_HEADING_FOR_DUMP << endl;
     cout << "Node    this               " << this << endl;
     cout << "Node    next               " << Node::next << endl;
