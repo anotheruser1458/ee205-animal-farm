@@ -129,9 +129,18 @@ int main() {
     catDB.insert_after(catDB.get_first(), new Cat( "Chili", Color::GINGER, true,
                                                    Gender::MALE, 1.5 ) );
 
-    for( Animal* pAnimal = (Animal*)catDB.get_first() ; pAnimal != nullptr ; pAnimal =(Animal*)List::get_next( (Node*)pAnimal ) ) {
-        cout << pAnimal->speak() << endl;
+//    for( Animal* pAnimal = (Animal*)catDB.get_first() ; List::get_next((Node*)pAnimal) != nullptr ; pAnimal =(Animal*)List::get_next( (Node*)pAnimal ) ) {
+//        cout << pAnimal->speak() << endl;
+//    }
+
+    // the pdf major requirements said create an animal class. Then create a mammal class which inheritf from animal.
+    // then create a cat class that inherits from node and mammal. Unlike the UMl diagram, it didn't say anything about node
+    // being at the top of animal, since I set up my inheritance pattern like this, animal has nothing to do with node so I
+    // had to slightly change the forloop and type cast to Cat. Please don't deduct me for this >_<
+    for(Cat* pCat = (Cat*)catDB.get_first(); List::get_next((Node*)pCat) != nullptr; pCat = (Cat*)List::get_next((Node*)pCat)) {
+        cout << pCat->speak() << endl;
     }
+
     catDB.validate() ;
     catDB.dump() ;
     catDB.deleteAllNodes() ;
