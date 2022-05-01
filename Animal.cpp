@@ -70,12 +70,12 @@ const string &Animal::getKingdomName() {
 }
 
 bool Animal::validate() {
-    weight.validate();
+    if(!weight.validate()) {
+        return false;
+    };
     validateClassification(classification);
     // we assume species/classification are always valid because boost trims the whitespace off ends
-    cout << "Classification is healthy" << endl;
     validateSpecies(species);
-    cout << "Species is healthy" << endl;
     return true;
 }
 

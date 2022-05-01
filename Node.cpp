@@ -26,7 +26,7 @@ void Node::dump() {
     cout << "Node    next               " << Node::next << endl;
 }
 
-bool Node::validate() const noexcept {
+bool Node::validate() {
     if (next == nullptr) {
         return true;
     }

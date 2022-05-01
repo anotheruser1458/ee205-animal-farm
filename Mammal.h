@@ -33,6 +33,7 @@ public:
     void dump() override;
     virtual string speak() const noexcept=0;
     static const string &getMammalName();
+    virtual bool validate();
 };
 
 

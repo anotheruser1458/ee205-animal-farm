@@ -45,7 +45,7 @@ public:
     const Weight &getWeight() const;
     static const string &getKingdomName();
     const string &getSpecies() const;
-    bool validate();
+    virtual bool validate();
     void validateClassification(string &newClassification);
     void validateSpecies(string &newSpecies);
     virtual string speak() const noexcept=0;

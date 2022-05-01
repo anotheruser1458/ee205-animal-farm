@@ -30,4 +30,6 @@ const string &Mammal::getMammalName() {
     return MAMMAL_NAME;
 }
 
-
+bool Mammal::validate() {
+    return Animal::validate();
+}

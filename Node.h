@@ -21,7 +21,7 @@ protected:
     static bool compareByAddress(const Node *node1, const Node *node2);
 public:
     virtual void dump();
-    virtual bool validate() const noexcept;
+    virtual bool validate();
     virtual bool operator>(const Node &rightSide);
 
 };

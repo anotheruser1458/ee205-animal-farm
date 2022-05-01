@@ -28,6 +28,7 @@ bool Cat::isFixed() {
 }
 
 void Cat::dump() {
+    Node::dump();
     Mammal::dump();
     cout << "Cat     name               " << name << endl;
     cout << "Cat     isFixed            " << boolToText(isFixed()) << endl;
@@ -61,7 +62,12 @@ return true;
 }
 
 bool Cat::validate() {
+
     if (!validateName(name)) {
+        cout << "Name is not healthy" << endl;
         return false;
+    }
+    if (Mammal::validate() && Node::validate()) {
+        return true;
     }
 }

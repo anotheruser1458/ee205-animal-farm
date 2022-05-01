@@ -93,15 +93,30 @@ void singlyLinkedListTests() {
     SLL1.insert_after(SLL1.get_first(), c2);
     cout << "Is list sorted? " << (SLL1.isSorted()?"true":"false") << endl;
     SLL1.dump();
+    cout << endl << endl << endl << endl;
+
+    Cat *c3 = (Cat*) SLL1.get_next(c2);
+    c3->dump();
+
+    cout << "Is SLL1 validated? " << (SLL1.validate()? "true":"false") << endl;
 }
 
 int main() {
     cout << "#####################################" << endl << endl;
-    nodeTests();
-    animalTests();
-    mammalTests();
-    catTests();
+ //   nodeTests();
+ //   animalTests();
+ //   mammalTests();
+ //   catTests();
     singlyLinkedListTests();
     cout << endl << "####################################" << endl;
+    return 0;
 }
+
+#else
+
+int main() {
+
+    return 0;
+}
+
 #endif

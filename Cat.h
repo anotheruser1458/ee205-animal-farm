@@ -37,7 +37,7 @@ public:
     void dump();
     virtual string speak() const noexcept;
     bool isCatFixed1() const;
-    bool validate();
+    virtual bool validate();
 };
 
 

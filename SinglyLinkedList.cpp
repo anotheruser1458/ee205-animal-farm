@@ -26,6 +26,7 @@ void SinglyLinkedList::insert_after(Node *currentNode, Node *newNode) {
     Node* tmp = currentNode->next;
     currentNode->next = newNode;
     newNode->next = tmp;
+    count += 1;
 }
 
 void SinglyLinkedList::dump() const noexcept {

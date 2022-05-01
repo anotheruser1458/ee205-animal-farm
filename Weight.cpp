@@ -121,11 +121,10 @@ bool Weight::isWeightValid(float checkWeight) const noexcept {
 }
 
 bool Weight::validate() const noexcept {
-    if(!isWeightValid(Weight::weight)) {
+    if(!isWeightValid(Weight::weight) && Weight::weight!=UNKNOWN_WEIGHT) {
         cout << "Weight is not healthy" << endl;
         return false;
     }
-    cout << "Weight is healthy" << endl;
     return true;
 }
 
