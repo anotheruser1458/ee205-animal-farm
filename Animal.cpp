@@ -42,7 +42,7 @@ void Animal::dump() {
     cout << "Animal  classification     " << classification << endl;
     cout << "Animal  species            " << species << endl;
     cout << "Animal  gender             " << gender << endl;
-    cout << "Animal  weight             " << weight.getWeight() << " out of " << weight.getMaxWeight() << endl;
+    cout << "Animal  weight             " << weight.getWeight() << " out of " << weight.getMaxWeight() << " " << weight.getWeightUnit() << "s" << endl;
 }
 
 float Animal::getMaxWeight() {

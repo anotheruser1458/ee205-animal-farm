@@ -24,8 +24,8 @@ public:
     Cat(string newName) : Mammal(MAX_WEIGHT, SPECIES_NAME){
         setName(newName);
     };
-    Cat(string newName, Color newColor, Gender newGender, float newWeight) :
-    Mammal(newColor,  newGender, newWeight, Cat::MAX_WEIGHT, Cat::SPECIES_NAME) {
+    Cat(string newName, Color newColor, bool isFixed, Gender newGender, float newWeight) :
+    Mammal(newColor,  newGender, newWeight, Cat::MAX_WEIGHT, Cat::SPECIES_NAME), isCatFixed(isFixed) {
         setName(newName);
     }
 
