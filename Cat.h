@@ -29,6 +29,8 @@ public:
     void setName(string newName);
     bool isFixed();
     void dump();
+    virtual string speak() const noexcept;
+
 };
 
 

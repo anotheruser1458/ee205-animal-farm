@@ -28,3 +28,7 @@ void Cat::dump() {
     cout << "Cat     isFixed            " << boolToText(isFixed()) << endl;
 }
 
+string Cat::speak() const noexcept {
+    string sp = "Meow";
+    return sp;
+}

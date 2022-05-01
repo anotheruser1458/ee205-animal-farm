@@ -21,3 +21,10 @@ void Mammal::dump() {
     cout << "Mammal  color              " << color << endl;
 
 }
+
+string Mammal::speak() const noexcept {
+    string sp = "Mammal speak";
+    return sp;
+}
+
+

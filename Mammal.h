@@ -26,6 +26,7 @@ public:
 
     void setColor(Color newColor);
     void dump() override;
+    virtual string speak() const noexcept;
 };
 
 
