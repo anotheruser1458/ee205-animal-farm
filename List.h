@@ -14,21 +14,28 @@
 
 class List {
 protected:
-    Node *head;
+    Node *head = new Node;
     unsigned int count;
 public:
     bool empty();
+
     unsigned int size();
+
     bool isIn(Node *aNode);
+
     bool isSorted();
-    Node* get_first();
+
+    Node *get_first();
+
     void deleteAllNodes() noexcept;
-    virtual Node* pop_front() noexcept = 0;
+
+    virtual Node *pop_front() noexcept = 0;
+
     virtual void dump() const noexcept = 0;
+
     virtual bool validate() const noexcept = 0;
-    static Node* get_next( Node *currentNode);
 
+    static Node *get_next(Node *currentNode);
 };
-
 
 #endif //EE205_LAB_08D_ANIMAL_FARM_3_LIST_H

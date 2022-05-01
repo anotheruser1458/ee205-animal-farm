@@ -11,3 +11,40 @@
 #include "SinglyLinkedList.h"
 
 
+void SinglyLinkedList::push_front(Node *newNode) {
+    newNode->next = head;
+    head = newNode;
+}
+
+Node *SinglyLinkedList::pop_front() noexcept {
+    Node *poppedNode = head;
+    head = head->next;
+    return poppedNode;
+}
+
+void SinglyLinkedList::insert_after(Node *currentNode, Node *newNode) {
+    Node* tmp = currentNode->next;
+    currentNode->next = newNode;
+    newNode->next = tmp;
+}
+
+void SinglyLinkedList::dump() const noexcept {
+    Node* currentNode = head;
+    while(currentNode->next != nullptr) {
+        currentNode->dump();
+        currentNode = currentNode->next;
+    }
+    currentNode->dump();
+}
+
+bool SinglyLinkedList::validate() const noexcept {
+    Node* currentNode = head;
+    while(currentNode->next != nullptr) {
+        if(!currentNode->validate()) {
+            return false;
+        }
+        currentNode = currentNode->next;
+    }
+    currentNode->validate();
+    return true;
+}

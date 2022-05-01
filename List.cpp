@@ -15,14 +15,15 @@ unsigned int List::size() {
     return count;
 }
 
-Node *List::get_next(Node *currentNode) {
+Node* List::get_next(Node *currentNode) {
     return currentNode->next;
 }
 
 bool List::empty() {
-    if (head->next != nullptr)
-        return false;
-    return true;
+    if (head->next == nullptr) {
+        return true;
+    }
+    return false;
 }
 
 bool List::isIn(Node *aNode) {
@@ -45,6 +46,7 @@ bool List::isSorted() {
         if(!Node::compareByAddress(currentNode, currentNode->next)) {
             return false;
         }
+        currentNode = currentNode->next;
     }
     return true;
 }
@@ -63,4 +65,3 @@ void List::deleteAllNodes() noexcept {
 #endif
     assert( validate() );
 }
-

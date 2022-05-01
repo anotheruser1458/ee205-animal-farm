@@ -17,6 +17,7 @@
 #include "Color.h"
 #include "Mammal.h"
 #include "Cat.h"
+#include "SinglyLinkedList.h"
 using namespace std;
 
 
@@ -71,14 +72,27 @@ void catTests() {
     Cat c2(" ");
 }
 
-void listTests() {
-    cout << "LIST TESTS" << endl << endl;
-
-}
 
 void singlyLinkedListTests() {
     cout << "SLL TESTS" << endl << endl;
+    SinglyLinkedList SLL1;
+    cout << "Is list empty? " << (SLL1.empty() ? "true":"false") << endl;
+    SLL1.push_front(new Cat("Mittens"));
+    cout << "Is list empty? " << (SLL1.empty() ? "true":"false") << endl;
+    Cat *c1 = (Cat*)SLL1.pop_front();
+    cout << c1->speak() << endl;
+    cout << "Is list empty? " << (SLL1.empty() ? "true":"false") << endl;
 
+    SLL1.push_front(new Cat("Gregory"));
+    SLL1.push_front(new Cat("Antohony"));
+    SLL1.push_front(new Cat("Thomas"));
+    cout << "Is list sorted? " << (SLL1.isSorted()?"true":"false") << endl;
+    SLL1.dump();
+
+    Cat *c2 = (Cat*)SLL1.pop_front();
+    SLL1.insert_after(SLL1.get_first(), c2);
+    cout << "Is list sorted? " << (SLL1.isSorted()?"true":"false") << endl;
+    SLL1.dump();
 }
 
 int main() {
@@ -86,9 +100,8 @@ int main() {
  //   nodeTests();
  //   animalTests();
   //  mammalTests();
- catTests();
-  //  listTests();
-   // singlyLinkedListTests();
+ //catTests();
+    singlyLinkedListTests();
     cout << endl << "####################################" << endl;
 }
 #endif
