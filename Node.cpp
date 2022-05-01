@@ -14,6 +14,9 @@
 using namespace std;
 
 bool Node::compareByAddress(const Node *node1, const Node *node2) {
+    if(node1 > node2) {
+        return true;
+    }
     return false;
 }
 
@@ -24,13 +27,18 @@ void Node::dump() const {
 }
 
 bool Node::validate() const noexcept {
-    return false;
+    if (next == nullptr) {
+        return true;
+    }
+
+    if (next == next->next) {
+        cout << "Recursive loop detected: next points to itself!";
+        return false;
+    }
+
+    return true;
 }
 
 bool Node::operator>(const Node &rightSide) {
-    return false;
-}
-
-Node *Node::getNext() {
-    return next;
+    return compareByAddress(this, &rightSide);
 }

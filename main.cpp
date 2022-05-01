@@ -19,35 +19,9 @@
 #include "Cat.h"
 using namespace std;
 
-ostream & operator<<(std::ostream &lhs_stream, const Gender &rhs_Gender) {
-    switch (rhs_Gender) {
-        case Gender::UNKNOWN_GENDER: lhs_stream << "Unknown Gender"; break;
-        case Gender::MALE: lhs_stream << "Male"; break;
-        case Gender::FEMALE: lhs_stream << "Female"; break;
-        default:
-            throw std::out_of_range("Enum is not mapped to a string");
-    }
-    return lhs_stream;
-}
 
-ostream & operator<<(ostream &lhs_stream, const Color &rhs_Color) {
-    switch(rhs_Color) {
-        case Color::UNKNOWN_COLOR: lhs_stream << "Unknown Color"; break;
-        case Color::BLACK: lhs_stream << "Black"; break;
-        case Color::BROWN: lhs_stream << "Brown"; break;
-        case Color::WHITE: lhs_stream << "White"; break;
-        case Color::RED: lhs_stream << "Red"; break;
-        case Color::BLUE: lhs_stream << "Blue"; break;
-        case Color::GREEN: lhs_stream << "Green"; break;
-        case Color::GINGER: lhs_stream << "Ginger"; break;
-        case Color::CREAM: lhs_stream << "Cream"; break;
-        case Color::CINNAMON: lhs_stream << "Cinnamon"; break;
-        case Color::CALICO: lhs_stream << "Calico"; break;
-        default:
-            throw out_of_range("Enum is not mapped to a string");
-    }
-    return lhs_stream;
-}
+
+
 
 #ifdef DEBUG
 
@@ -55,10 +29,22 @@ void nodeTests() {
     cout << "NODE TESTS" << endl << endl;
     Node n1;
     n1.dump();
+    Node n2;
+
 }
 
 void animalTests() {
-
+//    string s1 = ".cool.     ", s2 = "     .nice.";
+//    Animal a1(31.1, s1, s2);
+//    a1.dump();
+//    a1.validate();
+//    a1.setGender(Gender::MALE);
+//    a1.dump();
+////    a1.setGender(Gender::FEMALE);
+//    s1 = "Great animal";
+//    s2 = "How about them animals";
+//    Animal a2(Gender::FEMALE, 32.4, 40.0, s1, s2);
+//    a2.dump();
 }
 
 void mammalTests() {
@@ -84,12 +70,12 @@ void singlyLinkedListTests() {
 
 int main() {
     cout << "#####################################" << endl << endl;
-    nodeTests();
+ //   nodeTests();
     animalTests();
-    mammalTests();
-    catTests();
-    listTests();
-    singlyLinkedListTests();
+ //   mammalTests();
+  //  catTests();
+  //  listTests();
+   // singlyLinkedListTests();
     cout << endl << "####################################" << endl;
 }
 #endif

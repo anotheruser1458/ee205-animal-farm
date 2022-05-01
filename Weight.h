@@ -21,6 +21,7 @@ private:
     enum UnitOfWeight unitOfWeight = POUND;
     float weight = UNKNOWN_WEIGHT;
     float maxWeight = UNKNOWN_WEIGHT;
+    void setMaxWeight(float newMaxWeight);
     void setUnitOfWeight(UnitOfWeight newUnitOfWeight);
 
 public:
@@ -28,10 +29,9 @@ public:
     constexpr static const float KILOS_IN_A_POUND = 0.453592;
     constexpr static const float SLUGS_IN_A_POUND = 0.031081;
 
-    void setMaxWeight(float newMaxWeight);
     Weight() noexcept;
-    Weight(float newWeight);
-    Weight(UnitOfWeight newUnitOfWeight) noexcept;
+    explicit Weight(float newWeight);
+    explicit Weight(UnitOfWeight newUnitOfWeight) noexcept;
     Weight(float newWeight, UnitOfWeight newUnitOfWeight);
     Weight(float newWeight, float newMaxWeight);
     Weight(UnitOfWeight newUnitOfWeight, float newMaxWeight);
@@ -57,3 +57,14 @@ public:
     static float convertWeight(float fromWeight, UnitOfWeight fromUnit, UnitOfWeight toUnit) noexcept;
 
 };
+
+inline std::ostream &operator<<(std::ostream &os, UnitOfWeight unit) {
+    switch (unit) {
+        case POUND: os << "Pound"; break;
+        case KILO: os << "Kilogram"; break;
+        case SLUG: os << "Slug"; break;
+        default:
+            throw std::out_of_range("Not convertible to a string");
+    }
+    return os;
+}

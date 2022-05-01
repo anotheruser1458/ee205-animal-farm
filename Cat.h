@@ -12,7 +12,7 @@
 #define EE205_LAB_08D_ANIMAL_FARM_3_CAT_H
 #include "Mammal.h"
 
-class Cat : public Mammal {
+class Cat : public Mammal, public Node {
 protected:
     string name;
     bool isCatFixed = false;

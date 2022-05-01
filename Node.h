@@ -14,6 +14,8 @@
 using namespace std;
 
 class Node {
+    friend class List;
+    friend class SinglyLinkedList;
 protected:
     Node* next = nullptr;
     static bool compareByAddress(const Node *node1, const Node *node2);
@@ -21,7 +23,6 @@ public:
     virtual void dump() const;
     virtual bool validate() const noexcept;
     virtual bool operator>(const Node &rightSide);
-    Node* getNext();
 
 };
 

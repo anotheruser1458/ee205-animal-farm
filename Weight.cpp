@@ -8,14 +8,18 @@
 /// @author Maxwell Pauly <mgpauly@hawaii.edu>
 /// @date   24_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
-
 #include "Weight.h"
 #include <iostream>
 #include <stdexcept>
-#pragma once
-
 using namespace std;
 
+Weight::Weight() noexcept {
+
+}
+
+Weight::Weight(float newWeight) {
+    setWeight(newWeight);
+}
 
 Weight::Weight(UnitOfWeight newUnitOfWeight) noexcept {
     setUnitOfWeight(newUnitOfWeight);
@@ -50,6 +54,9 @@ float Weight::getWeight() const noexcept {
 }
 
 void Weight::setMaxWeight(float newMaxWeight) {
+    if(!isWeightValid(newMaxWeight)) {
+        throw out_of_range("Weight not valid");
+    }
     Weight::maxWeight = newMaxWeight;
     bHasMax = true;
 }
@@ -91,7 +98,14 @@ void Weight::setWeight(float newWeight) {
 }
 
 void Weight::setWeight(float newWeight, UnitOfWeight weightUnits) {
-
+    float weightInPounds = convertWeight(newWeight, weightUnits, POUND);
+    switch((int)Weight::unitOfWeight) {
+        case POUND: setWeight(weightInPounds); break;
+        case KILO: setWeight(convertWeight(weightInPounds, POUND, KILO)); break;
+        case SLUG: setWeight(convertWeight(weightInPounds, POUND, SLUG)); break;
+        default:
+            throw out_of_range("Can't convert weight to specified unit");
+    }
 }
 
 bool Weight::isWeightValid(float checkWeight) const noexcept {
@@ -107,7 +121,12 @@ bool Weight::isWeightValid(float checkWeight) const noexcept {
 }
 
 bool Weight::validate() const noexcept {
-    return false;
+    if(!isWeightValid(Weight::weight)) {
+        cout << "Weight is not healthy" << endl;
+        return false;
+    }
+    cout << "Weight is healthy" << endl;
+    return true;
 }
 
 void Weight::dump() const noexcept {
@@ -200,13 +219,3 @@ float Weight::convertWeight(float fromWeight, UnitOfWeight fromUnit, UnitOfWeigh
 void Weight::setUnitOfWeight(UnitOfWeight newUnitOfWeight) {
     Weight::unitOfWeight = newUnitOfWeight;
 }
-
-Weight::Weight() noexcept {
-
-}
-
-Weight::Weight(float newWeight) {
-    setWeight(newWeight);
-}
-
-

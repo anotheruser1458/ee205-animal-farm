@@ -22,7 +22,7 @@ public:
     bool isIn(Node *aNode);
     bool isSorted();
     Node* get_first();
-    void deleteAllNodes();
+    void deleteAllNodes() noexcept;
     virtual Node* pop_front() noexcept = 0;
     virtual void dump() const noexcept = 0;
     virtual bool validate() const noexcept = 0;

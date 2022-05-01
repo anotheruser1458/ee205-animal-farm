@@ -9,6 +9,7 @@
 /// @date   26_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
 #include "Cat.h"
+#include "util.h"
 
 float Cat::MAX_WEIGHT = 40;
 string Cat::SPECIES_NAME = "Felis Catus";
@@ -24,6 +25,6 @@ bool Cat::isFixed() {
 void Cat::dump() {
     Mammal::dump();
     cout << "Cat     name               " << name << endl;
-    cout << "Cat     isFixed            " << (isFixed()?"true":"false") << endl;
+    cout << "Cat     isFixed            " << boolToText(isFixed()) << endl;
 }
 

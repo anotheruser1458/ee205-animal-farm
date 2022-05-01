@@ -13,32 +13,42 @@
 #include "Node.h"
 #include "Gender.h"
 #include "Weight.h"
-class Animal : public Node {
+class Animal {
 private:
-    string species = "Unknown Species";
-    string classification = "Unknown Classification";
-
-    //@todo set gender and weight to unknown in constructor
+    string species;
+    string classification;
     Gender gender;
     Weight weight;
+
+protected:
+    void setGender(Gender gender);
+
 public:
     static string KINGDOM_NAME;
 
-    Animal(Gender newGender, float newWeight, float newMaxWeight, string newClassification, string newSpecies) {
-        setGender(newGender);
-        setWeight(newWeight);
-        setMaxWeight(newMaxWeight);
+    Animal(float newMaxWeight, string &newClassification, string &newSpecies) : weight(UnitOfWeight::POUND, newMaxWeight), gender(Gender::UNKNOWN_GENDER){
         setClassification(newClassification);
         setSpecies(newSpecies);
     }
 
-    void setGender(Gender gender);
+    Animal(Gender newGender, float newWeight, float newMaxWeight, string newClassification, string newSpecies) : weight(newWeight, newMaxWeight), gender(newGender){
+        setClassification(newClassification);
+        setSpecies(newSpecies);
+    }
     void setWeight(float newWeight);
-    void setMaxWeight(float newMaxWeight);
-    void setClassification(const string &classification);
-    void setSpecies(const string &species);
+    void setClassification(string &classification);
+    void setSpecies(string &species);
     float getMaxWeight();
     virtual void dump();
+    const string &getClassification() const;
+    Gender getGender() const;
+    const Weight &getWeight() const;
+    static const string &getKingdomName();
+    const string &getSpecies() const;
+    bool validate();
+    void validateClassification(string &newClassification);
+    void validateSpecies(string &newSpecies);
+    virtual string speak() const noexcept=0;
 };
 
 

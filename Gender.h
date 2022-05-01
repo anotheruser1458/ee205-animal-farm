@@ -12,4 +12,13 @@
 
 enum class Gender { UNKNOWN_GENDER =0 , MALE , FEMALE };
 
-std::ostream & operator<<(std::ostream &lhs_stream, const Gender &rhs_Gender);
+inline ostream & operator<<(std::ostream &lhs_stream, const Gender &rhs_Gender) {
+    switch (rhs_Gender) {
+        case Gender::UNKNOWN_GENDER: lhs_stream << "Unknown Gender"; break;
+        case Gender::MALE: lhs_stream << "Male"; break;
+        case Gender::FEMALE: lhs_stream << "Female"; break;
+        default:
+            throw std::out_of_range("Enum is not mapped to a string");
+    }
+    return lhs_stream;
+}
