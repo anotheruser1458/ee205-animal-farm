@@ -10,6 +10,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 #include "Animal.h"
 #include "boost/algorithm/string.hpp"
+#include "util.h"
+
 string Animal::KINGDOM_NAME = "Animalia";
 
 void Animal::setGender(Gender newGender) {
@@ -40,7 +42,7 @@ void Animal::dump() {
     cout << "Animal  classification     " << classification << endl;
     cout << "Animal  species            " << species << endl;
     cout << "Animal  gender             " << gender << endl;
-    cout << "Animal  weight             " << weight.getWeight() << endl;
+    cout << "Animal  weight             " << weight.getWeight() << " out of " << weight.getMaxWeight() << endl;
 }
 
 float Animal::getMaxWeight() {

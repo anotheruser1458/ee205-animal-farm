@@ -14,5 +14,6 @@
 #include <iostream>
 
 std::string boolToText(bool);
+std::string maxWeightToText(float);
 
 #endif //EE205_LAB_08D_ANIMAL_FARM_3_UTIL_H

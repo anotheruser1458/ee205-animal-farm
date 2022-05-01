@@ -19,14 +19,20 @@ protected:
 
 public:
     static string MAMMAL_NAME;
+    Mammal(float newMaxWeight, string &newSpecies) : Animal(newMaxWeight, MAMMAL_NAME, newSpecies){
+        setColor(Color::UNKNOWN_COLOR);
+    };
     Mammal(Color newColor, Gender newGender, float newWeight, float newMaxWeight, string newSpecies) :
     Animal(newGender, newWeight, newMaxWeight, MAMMAL_NAME, newSpecies) {
         setColor(newColor);
-    };
+    }
+
+    Color getColor() const;;
 
     void setColor(Color newColor);
     void dump() override;
     virtual string speak() const noexcept;
+    static const string &getMammalName();
 };
 
 

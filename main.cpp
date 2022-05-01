@@ -40,7 +40,7 @@ void animalTests() {
 //    a1.validate();
 //    a1.setGender(Gender::MALE);
 //    a1.dump();
-////    a1.setGender(Gender::FEMALE);
+//    a1.setGender(Gender::FEMALE);
 //    s1 = "Great animal";
 //    s2 = "How about them animals";
 //    Animal a2(Gender::FEMALE, 32.4, 40.0, s1, s2);
@@ -48,14 +48,21 @@ void animalTests() {
 }
 
 void mammalTests() {
+    string s1 = "Feline";
+    Mammal m1(32.3, s1);
+    m1.dump();
+    m1.setColor(Color::GREEN);
+    m1.dump();
 
+    Mammal m2(Color::GINGER, Gender::MALE, 32.4, 90.0, s1);
+    m2.dump();
 }
 
 void catTests() {
-    cout << "CAT TESTS" << endl << endl;
-    Cat c1("Mittens", Color::RED, Gender::MALE, 23);
-    c1.dump();
-    cout << c1.getMaxWeight() << endl;
+//    cout << "CAT TESTS" << endl << endl;
+//    Cat c1("Mittens", Color::RED, Gender::MALE, 23);
+//    c1.dump();
+//    cout << c1.getMaxWeight() << endl;
 }
 
 void listTests() {
@@ -71,9 +78,9 @@ void singlyLinkedListTests() {
 int main() {
     cout << "#####################################" << endl << endl;
  //   nodeTests();
-    animalTests();
- //   mammalTests();
-  //  catTests();
+ //   animalTests();
+    mammalTests();
+ catTests();
   //  listTests();
    // singlyLinkedListTests();
     cout << endl << "####################################" << endl;

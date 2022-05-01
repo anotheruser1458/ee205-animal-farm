@@ -27,4 +27,12 @@ string Mammal::speak() const noexcept {
     return sp;
 }
 
+Color Mammal::getColor() const {
+    return color;
+}
+
+const string &Mammal::getMammalName() {
+    return MAMMAL_NAME;
+}
+
 

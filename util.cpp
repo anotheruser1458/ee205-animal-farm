@@ -10,9 +10,19 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
-
+#include "Weight.h"
 std::string boolToText(bool value) {
     std::string answer;
     answer = value ? "true":"false";
     return answer;
+};
+
+std::string maxWeightToText(float maxWeight) {
+    std::string maxW;
+    if(maxWeight == Weight::UNKNOWN_WEIGHT) {
+        maxW = "Unknown";
+    } else {
+        maxW = std::to_string(maxWeight);
+    }
+    return maxW;
 };
