@@ -22,11 +22,6 @@ void Mammal::dump() {
 
 }
 
-string Mammal::speak() const noexcept {
-    string sp = "Mammal speak";
-    return sp;
-}
-
 Color Mammal::getColor() const {
     return color;
 }

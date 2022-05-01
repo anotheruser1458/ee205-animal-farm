@@ -10,12 +10,17 @@
 ///////////////////////////////////////////////////////////////////////////////
 #include "Cat.h"
 #include "util.h"
+#include <string.h>
 
 float Cat::MAX_WEIGHT = 40;
 string Cat::SPECIES_NAME = "Felis Catus";
 
 void Cat::setName(string newName) {
-    name = newName;
+    if(validateName(newName)) {
+        name = newName;
+    } else {
+        cout << "Name is invalid" << endl;
+    }
 }
 
 bool Cat::isFixed() {
@@ -31,4 +36,33 @@ void Cat::dump() {
 string Cat::speak() const noexcept {
     string sp = "Meow";
     return sp;
+}
+
+const string Cat::getName() const {
+    return name;
+}
+
+bool Cat::isCatFixed1() const {
+    return isCatFixed;
+}
+
+void Cat::fixCat() noexcept {
+    if(!isCatFixed) {
+        isCatFixed = true;
+    }
+}
+
+
+bool Cat::validateName(string newName) {
+if (newName.empty()) {
+    throw invalid_argument("Name is empty");
+}
+return true;
+}
+
+bool Cat::validate() {
+    if (!validateName(name)) {
+        return false;
+    }
+
 }

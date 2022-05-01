@@ -31,7 +31,7 @@ public:
 
     void setColor(Color newColor);
     void dump() override;
-    virtual string speak() const noexcept;
+    virtual string speak() const noexcept=0;
     static const string &getMammalName();
 };
 

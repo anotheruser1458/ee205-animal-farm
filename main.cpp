@@ -48,21 +48,27 @@ void animalTests() {
 }
 
 void mammalTests() {
-    string s1 = "Feline";
-    Mammal m1(32.3, s1);
-    m1.dump();
-    m1.setColor(Color::GREEN);
-    m1.dump();
-
-    Mammal m2(Color::GINGER, Gender::MALE, 32.4, 90.0, s1);
-    m2.dump();
+//    string s1 = "Feline";
+//    Mammal m1(32.3, s1);
+//    m1.dump();
+//    m1.setColor(Color::GREEN);
+//    m1.dump();
+//
+//    Mammal m2(Color::GINGER, Gender::MALE, 32.4, 90.0, s1);
+//    m2.dump();
 }
 
 void catTests() {
-//    cout << "CAT TESTS" << endl << endl;
-//    Cat c1("Mittens", Color::RED, Gender::MALE, 23);
-//    c1.dump();
-//    cout << c1.getMaxWeight() << endl;
+    cout << "CAT TESTS" << endl << endl;
+    Cat c1("Mittens", Color::RED, Gender::MALE, 23);
+    c1.dump();
+    c1.fixCat();
+    c1.dump();
+    c1.fixCat();
+    c1.dump();
+    cout << c1.getMaxWeight() << endl;
+    cout << c1.speak() << endl;
+    Cat c2(" ");
 }
 
 void listTests() {
@@ -79,7 +85,7 @@ int main() {
     cout << "#####################################" << endl << endl;
  //   nodeTests();
  //   animalTests();
-    mammalTests();
+  //  mammalTests();
  catTests();
   //  listTests();
    // singlyLinkedListTests();
