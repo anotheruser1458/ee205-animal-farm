@@ -75,7 +75,17 @@ endif (DOXYGEN_FOUND)
 
 message(STATUS "PROJECT_BINARY_DIR = [${PROJECT_BINARY_DIR}]")
 
+add_custom_command(TARGET doxygen
+        PRE_BUILD
+        COMMAND rsync --recursive --mkpath --checksum --delete ${CMAKE_SOURCE_DIR}/images ${DOXYGEN_OUTPUT_DIRECTORY}/html
+        COMMENT "Updating images directory"
+        )
 
+add_custom_command(TARGET doxygen
+        POST_BUILD
+        COMMAND rsync --recursive --checksum --delete --compress --stats ${DOXYGEN_OUTPUT_DIRECTORY}/html/ mgpauly@uhunix.hawaii.edu:~/public_html/ee205/${CMAKE_PROJECT_NAME}
+        COMMENT "Pushing files to UHUnix"
+        )
 
 find_package(Boost REQUIRED)
 include_directories(${Boost_INCLUDE_DIRS})
