@@ -11,6 +11,7 @@
 #ifndef EE205_LAB_08D_ANIMAL_FARM_3_LIST_H
 #define EE205_LAB_08D_ANIMAL_FARM_3_LIST_H
 #include "Node.h"
+#include "main.h"
 
 class List {
 protected:

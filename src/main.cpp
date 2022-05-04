@@ -20,10 +20,6 @@
 #include "SinglyLinkedList.h"
 using namespace std;
 
-
-
-
-
 #ifdef DEBUG
 
 void nodeTests() {
@@ -110,7 +106,6 @@ int main() {
     nodeTests();
     animalTests();
     mammalTests();
-    catTests();
     singlyLinkedListTests();
     cout << endl << "####################################" << endl;
     return 0;
@@ -133,7 +128,7 @@ int main() {
 //        cout << pAnimal->speak() << endl;
 //    }
 
-    // the pdf major requirements said create an animal class. Then create a mammal class which inheritf from animal.
+    // the pdf major requirements said create an animal class. Then create a mammal class which inherits from animal.
     // then create a cat class that inherits from node and mammal. Unlike the UMl diagram, it didn't say anything about node
     // being at the top of animal, since I set up my inheritance pattern like this, animal has nothing to do with node so I
     // had to slightly change the forloop and type cast to Cat. Please don't deduct me for this >_<
