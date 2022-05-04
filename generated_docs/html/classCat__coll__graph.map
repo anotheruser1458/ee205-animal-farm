@@ -1,0 +1,9 @@
+<map id="Cat" name="Cat">
+<area shape="rect" id="node1" title=" " alt="" coords="152,1419,768,1657"/>
+<area shape="rect" id="node2" href="$classMammal.html" title=" " alt="" coords="99,1189,820,1369"/>
+<area shape="rect" id="node3" href="$classAnimal.html" title=" " alt="" coords="339,800,1106,1112"/>
+<area shape="rect" id="node4" title=" " alt="" coords="148,381,235,459"/>
+<area shape="rect" id="node5" title=" " alt="" coords="98,5,286,83"/>
+<area shape="rect" id="node6" href="$classWeight.html" title=" " alt="" coords="378,132,1067,708"/>
+<area shape="rect" id="node7" href="$classNode.html" title=" " alt="" coords="845,1219,1346,1340"/>
+</map>
